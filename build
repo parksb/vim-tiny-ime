@@ -6,12 +6,15 @@ cd "${0%/*}"
 
 # Remove previous build result
 rm -f set-ime
+rm -f get-ime
 
 # Check if swiftc is available
 if xcode-select -p 1>/dev/null 2>/dev/null; then
   # Compile
   swiftc -O set-ime.swift
+  swiftc -O get-ime.swift
 else
   # Fallback to python2 version
   cp -f set-ime.py set-ime
+  cp -f get-ime.py get-ime
 fi
